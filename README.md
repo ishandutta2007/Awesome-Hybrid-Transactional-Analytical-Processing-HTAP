@@ -1,195 +1,96 @@
-# Awesome-Hybrid-Transactional-Analytical-Processing-HTAP
+# Awesome Hybrid Transactional/Analytical Processing (HTAP) [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-## Top Hybrid Transactional/Analytical Processing (HTAP) Ecosystem
-
-
-
-**Curated List of SaaS Products & Open-Source GitHub Projects**  
-
-*Focused on Real-Time Analytics, Distributed SQL & Self-Hosted HTAP Engines*  
-
-**Last updated: November 2026**
-
-
-
-This repository tracks notable **SaaS platforms** and **open-source projects** for **Hybrid Transactional/Analytical Processing (HTAP)**. These systems enable organizations to run transactional workloads and analytical queries on the same data without ETL pipelines or separate data warehouses—eliminating the latency and complexity of moving data between OLTP and OLAP systems.
-
-
-
-**Examples** include Snowflake Hybrid Tables (Unistore), SingleStore Helios, PingCAP TiDB Cloud, Google Cloud Spanner, CockroachDB Dedicated, AlloyDB for PostgreSQL, Oracle HeatWave, MariaDB SkySQL, Azure Cosmos DB, and AWS Aurora Limitless (the category leaders).
-
-
-
-**Open-source emphasis**: HTAP is a domain where open-source tooling is **genuinely mature at the distributed SQL layer but the definition of "HTAP" varies widely**. **TiDB** is the most complete open-source HTAP system—a MySQL-compatible distributed SQL database with **TiFlash**, a columnar engine that replicates row data in real-time and serves analytical queries without impacting transactional performance . **CockroachDB** provides distributed SQL with serializable isolation and strong consistency, though its analytical capabilities are less developed than TiDB's TiFlash . **Apache Doris** and **StarRocks** are MPP analytical engines that can ingest transactional data but are not true HTAP systems (they lack multi-row ACID transactions) . The critical caveat: **commercial platforms differentiate on managed serverless scaling and multi-region consistency**—Google Spanner's TrueTime and Aurora Limitless's distributed transaction handling remain commercial advantages. **SingleStore Helios** offers a managed HTAP platform with universal storage, but the open-source path (SingleStore Free) has limitations .
-
-
-
-Contributions welcome! Open a PR to add/update entries. Keep descriptions factual and link to official sites.
-
-
-
-## Table of Contents
-
-- [SaaS/Hosted Platforms](#saas-products)
-
-- [Open-Source GitHub Projects](#open-source-github-projects)
-
-- [How to Contribute](#how-to-contribute)
-
-- [Disclaimer](#disclaimer)
-
-
-
-## SaaS/Hosted Platforms
-
-
-
-- **[Snowflake Hybrid Tables (Unistore)](https://www.snowflake.com/)**  
-
-  Snowflake's HTAP offering for transactional workloads within the data cloud; Hybrid Tables support row-level ACID transactions and are optimized for low-latency, high-concurrency access while remaining queryable alongside Snowflake's analytical tables.
-
-
-
-- **[SingleStore Helios](https://www.singlestore.com/)**  
-
-  Managed HTAP platform with **Universal Storage** (single table serving both transactional and analytical workloads); supports real-time dashboards, JSON/vector data, and hybrid vector search. **Helios** is the fully managed cloud offering; **SingleStore Free** exists but with limits.
-
-
-
-- **[PingCAP TiDB Cloud](https://www.pingcap.com/)**  
-
-  Managed TiDB with **TiFlash** for real-time HTAP; separates row store (TiKV) from columnar analytics (TiFlash) so analytical queries do not impact transactional performance.
-
-
-
-- **[Google Cloud Spanner](https://cloud.google.com/spanner)**  
-
-  Globally distributed, strongly consistent database with **TrueTime** for external consistency; supports analytical queries via federated queries and BigQuery integration, though it is primarily OLTP.
-
-
-
-- **[CockroachDB Dedicated](https://www.cockroachlabs.com/)**  
-
-  Managed distributed SQL with serializable isolation and multi-region survivability; analytical capabilities via columnar indexes and vector search, but not a dedicated HTAP engine.
-
-
-
-- **[AlloyDB for PostgreSQL](https://cloud.google.com/alloydb)**  
-
-  Google's managed PostgreSQL-compatible database with **columnar engine** for accelerated analytical queries; bridges OLTP and OLAP without data movement.
-
-
-
-- **[Oracle HeatWave](https://www.oracle.com/)**  
-
-  MySQL-compatible HTAP service with in-memory columnar engine for real-time analytics; queries run directly on transactional data without ETL.
-
-
-
-- **[MariaDB SkySQL](https://mariadb.com/)**  
-
-  Managed MariaDB with HTAP capabilities via **ColumnStore** for analytical workloads alongside transactional tables.
-
-
-
-- **[Azure Cosmos DB](https://azure.microsoft.com/en-us/products/cosmos-db)**  
-
-  Multi-model distributed database with **Synapse Link** for HTAP—analytical queries run against transactional data without impacting performance.
-
-
-
-- **[AWS Aurora Limitless](https://aws.amazon.com/rds/aurora/)**  
-
-  Distributed PostgreSQL-compatible database with horizontally scaled write and read capacity; designed for high-throughput transactional workloads with analytical query support.
-
-
-
-## Open-Source GitHub Projects
-
-
-
-### Full HTAP Engines (TiDB, CockroachDB)
-
-
-
-- **[TiDB](https://github.com/pingcap/tidb)**  
-
-  The **most complete open-source HTAP system** (Apache 2.0). Architecture: **TiKV** (row store for OLTP) + **TiFlash** (columnar store for OLAP)—TiFlash replicates data from TiKV in real-time and serves analytical queries without impacting transactional performance . MySQL-compatible; supports ACID transactions, distributed SQL, and real-time analytics in one system . **Best for organizations wanting true HTAP** with MySQL compatibility and separated row/column workloads—but it requires significant operational expertise to deploy and tune.
-
-
-
-- **[CockroachDB](https://github.com/cockroachdb/cockroach)**  
-
-  Distributed SQL database with **serializable isolation** and multi-region survivability (Apache 2.0 / BSL for some features). Supports transactional workloads and analytical queries via columnar indexes and vector search . **Best for globally distributed OLTP** needing strong consistency—but analytical capabilities are less mature than TiDB's TiFlash .
-
-
-
-### Analytical Engines (Not True HTAP)
-
-
-
-- **[Apache Doris](https://github.com/apache/doris)**  
-
-  MySQL-compatible **real-time MPP analytical database** (Apache 2.0). Supports high-concurrency point queries and real-time analytics, but **lacks multi-row ACID transactions**—it is OLAP-first, not HTAP . **Best for real-time analytics** where full transactional guarantees are not required.
-
-
-
-- **[StarRocks](https://github.com/StarRocks/starrocks)**  
-
-  Real-time MPP OLAP database (Apache 2.0) with MySQL compatibility and lakehouse acceleration. **Not an HTAP engine**—optimized for analytical workloads, not transactional processing.
-
-
-
-### Additional Strong Open-Source Options
-
-
-
-- **PostgreSQL + Citus** — Citus extends PostgreSQL for distributed transactions and parallel queries; provides some HTAP-like capabilities (real-time analytics on transactional data) without a separate columnar store . **Best for PostgreSQL teams** wanting scale-out OLTP with analytical queries—but not a dedicated HTAP engine.
-
-- **MySQL + HeatWave (Open Source alternatives)** — Oracle HeatWave is commercial; open-source alternatives for MySQL analytics include **ClickHouse** (via MySQL protocol) or **Apache Doris**—neither provides true HTAP.
-
-
-
-**Frameworks for building custom systems**: For a **true open-source HTAP system with separated row/column stores**, TiDB with TiFlash is the mature standard . For **distributed OLTP with some analytical capability**, CockroachDB . For **real-time analytics without full transactional guarantees**, Apache Doris or StarRocks . **No open-source project matches the managed serverless scaling and multi-region consistency** of Google Spanner or Aurora Limitless—those are commercial advantages in infrastructure and global distribution .
-
-
-
-## How to Contribute
-
-
-
-1. Fork the repo.
-
-2. Add/edit entries in `README.md` (follow existing format).
-
-3. Include: name, link, 1–2 sentence description, and whether it's SaaS or open-source.
-
-4. Submit PR with a short explanation.
-
-
-
-Star the repo if you find it useful!
-
-
-
-## Disclaimer
-
-
-
-- This is a **community-curated** list — not exhaustive and not an endorsement.
-
-- HTAP platforms handling transactional and analytical workloads must comply with organizational security policies and data governance requirements; **self-hosted solutions place full responsibility for tuning, scaling, and maintaining separation between OLTP and OLAP workloads on the operator**.
-
-- **Open-source HTAP is mature at the distributed SQL layer but the definition varies**—**TiDB is the most complete true HTAP system** with separated row (TiKV) and columnar (TiFlash) stores . **Apache Doris and StarRocks are OLAP engines**, not HTAP—they lack multi-row ACID transactions . Choose based on whether you need true transactional guarantees (TiDB, CockroachDB) or real-time analytics (Doris, StarRocks).
-
-- Verify license terms for commercial use; TiDB and CockroachDB are open-source (check repositories for specific licenses), and Apache Doris/StarRocks use Apache 2.0 .
-
-
+> A curated list of leading SaaS cloud platforms, distributed SQL databases, and open-source engines for **Hybrid Transactional/Analytical Processing (HTAP)** and real-time operational analytics.
 
 ---
 
+## Sector Overview & Market Dynamics
 
+The global Hybrid Transactional/Analytical Processing (HTAP) market is estimated at approximately **$8.2 billion in 2026** and projected to surpass **$30 billion by the early 2030s**, compounding at a CAGR of ~24%. The sector exhibits a **moderately fragmented architecture with dual-layer consolidation**: hyperscale cloud providers (Microsoft Azure, AWS, Google Cloud, Oracle) capture dominant operational workloads through serverless HTAP integrations (e.g., Azure Synapse Link, Aurora Limitless, AlloyDB, Spanner TrueTime), while specialized distributed SQL and real-time columnar engines (TiDB, SingleStore, CockroachDB, Snowflake Unistore) retain strong, defensible developer niches through sub-second analytical concurrency, decoupled compute-storage scaling, and native zero-ETL primitives.
 
-**Made for data platform engineers, database architects, and organizations evaluating HTAP systems.**  
+---
 
-Let's make hybrid transactional/analytical processing more open, but with clear eyes about the definitional differences between true HTAP engines and OLAP systems that ingest transactional data.
+## Table of Contents
+
+- [Sector Overview & Market Dynamics](#sector-overview--market-dynamics)
+- [SaaS & Managed Cloud Platforms](#saas--managed-cloud-platforms)
+- [Open-Source GitHub Projects](#open-source-github-projects)
+- [Architectural Comparison: True HTAP vs. MPP OLAP](#architectural-comparison-true-htap-vs-mpp-olap)
+- [How to Contribute](#how-to-contribute)
+- [Disclaimer & License](#disclaimer--license)
+
+---
+
+## SaaS & Managed Cloud Platforms
+
+The table below lists the leading commercial and fully managed SaaS/PaaS platforms offering HTAP, distributed SQL, or converged operational-analytical query capabilities. Entries are sorted in descending order by **parent company size** (market capitalization / valuation / annual revenue).
+
+| Platform | Provider / Company | Company Size (Valuation / Market Cap / Rev) | Starting Tier Pricing | Free Tier / Trial Limit | Key HTAP Capabilities |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **[Azure Cosmos DB](https://azure.microsoft.com/en-us/products/cosmos-db)** | Microsoft | ~$3.1T Market Cap | Serverless: $0.25 per 1M RU/s + $0.25/GB storage; Provisioned: ~$0.008/hour per 100 RU/s | **Free Forever**: 1,000 RU/s throughput + 25 GB storage per month free indefinitely across all APIs | Multi-model distributed NoSQL/relational database with **Azure Synapse Link**, providing zero-ETL, near-real-time analytical execution over operational stores. |
+| **[AWS Aurora Limitless Database](https://aws.amazon.com/rds/aurora/)** | Amazon Web Services (AWS) | ~$1.9T Market Cap (Amazon) | $0.12 per Aurora Capacity Unit (ACU-Hour) + $0.10/GB-month storage | **Free Trial**: AWS Free Tier offers 750 hours/month of db.t3.micro or db.t4g.micro single-AZ instances for 12 months (standard Aurora) | Distributed PostgreSQL-compatible engine featuring horizontally scaled multi-sharding, high-throughput OLTP writes, and distributed transactional read-analytics without cross-region ETL. |
+| **[Google Cloud Spanner](https://cloud.google.com/spanner)** | Google Cloud (Alphabet) | ~$1.9T Market Cap (Alphabet) | $0.09 per Spanner Processing Unit (PU) hour (~$65.70/month for 100 PUs base instance) + $0.30/GB storage | **Free Trial**: $300 in free Cloud credits valid for 90 days across all Google Cloud services | Globally distributed relational database with **TrueTime** synchronization, external serializability, federated BigQuery pushdowns, and HTAP query parallelization. |
+| **[AlloyDB for PostgreSQL](https://cloud.google.com/alloydb)** | Google Cloud (Alphabet) | ~$1.9T Market Cap (Alphabet) | $0.0867 per vCPU/hour + $0.0173 per GB RAM/hour (~$0.48/hr for a 4 vCPU, 32 GB node) | **Free Trial**: $300 Google Cloud credit valid for 90 days; includes AlloyDB free trial instance credits | Managed PostgreSQL-compatible database featuring an in-memory columnar engine, ML-driven vector search, and analytical scan acceleration over operational tables. |
+| **[Oracle HeatWave](https://www.oracle.com/heatwave/)** | Oracle | ~$400B Market Cap | ~$0.16 per HeatWave Node hour (~$115/month per node) on Oracle Cloud Infrastructure (OCI) | **Free Forever + Trial**: $300 free trial credits for 30 days + OCI "Always Free" tier (includes 2 Autonomous DB instances with 20 GB storage each) | In-memory massively parallel columnar query accelerator built into MySQL, eliminating external ETL and running real-time analytics, machine learning, and generative AI queries natively. |
+| **[Snowflake Hybrid Tables (Unistore)](https://www.snowflake.com/)** | Snowflake | ~$45B Market Cap | Standard Edition starts at $2.00 per Snowflake Credit consumed (~$2.00/warehouse compute-hour) | **Free Trial**: 30-day free trial with $400 worth of free compute and storage credits | Unistore architecture with Hybrid Tables providing low-latency, row-level ACID transactions that can be joined inline directly against analytical column-oriented data lake tables. |
+| **[CockroachDB Dedicated](https://www.cockroachlabs.com/)** | Cockroach Labs | ~$5B Valuation | CockroachDB Standard: $0.10 per vCPU hour + $0.05 per 100K request units (Dedicated begins at ~$0.27/vCPU/hr) | **Free Forever**: CockroachDB Serverless grants 50 million Request Units (RUs) and 10 GB storage free each month | Distributed SQL engine with serializable isolation, geo-partitioning, distributed analytical query cost models, and vector search. |
+| **[PingCAP TiDB Cloud](https://www.pingcap.com/)** | PingCAP | ~$3B Valuation | Serverless: $0.10 per 1M Request Units (RU) + $0.25/GB-month storage (Dedicated from ~$0.20/vCPU/hr) | **Free Forever**: TiDB Cloud Serverless provides 25 million Request Units (RUs) and 5 GB storage free every month | Distributed MySQL-compatible database pairing **TiKV** (row-store OLTP) and **TiFlash** (columnar OLAP) with automatic raft-based synchronization for isolated HTAP execution. |
+| **[SingleStore Helios](https://www.singlestore.com/)** | SingleStore | ~$1.3B Valuation | Compute starts at $0.65 per compute unit per hour (S-0.5 tier) + $0.05 per GB-month storage | **Free Trial**: $600 in free trial credits valid for up to 30 days | Universal Storage technology combining row and columnar representations within a single engine for sub-second analytical queries, vector similarity search, and high-velocity transactional ingestion. |
+| **[MariaDB SkySQL](https://mariadb.com/skysql/)** | MariaDB | ~$100M Valuation / Revenue Run-rate | SkySQL starts at ~$0.17 per vCPU hour (~$120/month for entry-level managed node) | **Free Trial**: 14-day free trial with $500 in cloud usage credits | Cloud Database-as-a-Service delivering hybrid transactional and analytical processing powered by the MariaDB ColumnStore plugin. |
+
+---
+
+## Open-Source GitHub Projects
+
+The following open-source projects provide native HTAP architectures, distributed SQL engines, or analytical databases capable of operational analytics. Repositories are sorted in descending order by **GitHub Star Count**. Click on any star badge to navigate to the project's stargazers page.
+
+| Repository | Stars | Primary Architecture | Description | License |
+| :--- | :---: | :--- | :--- | :--- |
+| **[ClickHouse](https://github.com/ClickHouse/ClickHouse)** | [![Stars](https://img.shields.io/github/stars/ClickHouse/ClickHouse?style=social&color=white)](https://github.com/ClickHouse/ClickHouse/stargazers) | Column-Oriented DBMS / Real-Time OLAP | Ultra-fast column-oriented database management system for real-time analytical reporting and operational metric streaming using SQL. | Apache-2.0 |
+| **[DuckDB](https://github.com/duckdb/duckdb)** | [![Stars](https://img.shields.io/github/stars/duckdb/duckdb?style=social&color=white)](https://github.com/duckdb/duckdb/stargazers) | In-Process Columnar OLAP Engine | Embeddable analytical SQL database engine ("SQLite for Analytics") designed for high-performance operational vector and column analytics. | MIT |
+| **[TiDB](https://github.com/pingcap/tidb)** | [![Stars](https://img.shields.io/github/stars/pingcap/tidb?style=social&color=white)](https://github.com/pingcap/tidb/stargazers) | Native Distributed HTAP (TiKV + TiFlash) | Flagship distributed SQL database featuring decoupled row-store (TiKV) and columnar store (TiFlash) with real-time replication and zero OLTP interference. | Apache-2.0 |
+| **[CockroachDB](https://github.com/cockroachdb/cockroach)** | [![Stars](https://img.shields.io/github/stars/cockroachdb/cockroach?style=social&color=white)](https://github.com/cockroachdb/cockroach/stargazers) | Distributed SQL / Strong Consistency | Cloud-native distributed SQL engine built on multi-region serializability, automated horizontal sharding, and vectorized analytical query execution. | BSL 1.1 / CCL |
+| **[TimescaleDB](https://github.com/timescale/timescaledb)** | [![Stars](https://img.shields.io/github/stars/timescale/timescaledb?style=social&color=white)](https://github.com/timescale/timescaledb/stargazers) | PostgreSQL Extension (Time-Series & HTAP) | Extends PostgreSQL with automated chunk-based Hypertables, columnar compression, and hybrid analytical querying over continuous streaming data. | Timescale License / Apache-2.0 |
+| **[Apache Doris](https://github.com/apache/doris)** | [![Stars](https://img.shields.io/github/stars/apache/doris?style=social&color=white)](https://github.com/apache/doris/stargazers) | Real-Time MPP Analytical Database | High-performance MPP analytical database supporting real-time data ingestion, high-concurrency point queries, and low-latency interactive OLAP. | Apache-2.0 |
+| **[Citus](https://github.com/citusdata/citus)** | [![Stars](https://img.shields.io/github/stars/citusdata/citus?style=social&color=white)](https://github.com/citusdata/citus/stargazers) | Distributed PostgreSQL Extension | Transforms standard PostgreSQL into a distributed database sharding tables and parallelizing transactional and analytical queries across cluster nodes. | AGPL-3.0 |
+| **[StarRocks](https://github.com/StarRocks/starrocks)** | [![Stars](https://img.shields.io/github/stars/StarRocks/starrocks?style=social&color=white)](https://github.com/StarRocks/starrocks/stargazers) | Vectorized MPP Lakehouse Engine | Sub-second real-time analytical database featuring a fully vectorized SIMD execution engine, real-time mutable tables, and lakehouse query acceleration. | Apache-2.0 |
+| **[YugabyteDB](https://github.com/yugabyte/yugabyte-db)** | [![Stars](https://img.shields.io/github/stars/yugabyte/yugabyte-db?style=social&color=white)](https://github.com/yugabyte/yugabyte-db/stargazers) | Distributed SQL (PostgreSQL & Cassandra API) | High-performance distributed SQL database designed for cloud-native transactional workloads with multi-region consistency and analytical parallel scanning. | Apache-2.0 |
+| **[OceanBase](https://github.com/oceanbase/oceanbase)** | [![Stars](https://img.shields.io/github/stars/oceanbase/oceanbase?style=social&color=white)](https://github.com/oceanbase/oceanbase/stargazers) | Enterprise Distributed HTAP Database | High-concurrency enterprise distributed relational database designed for ultra-high transaction throughput and real-time mixed HTAP workloads. | MulanPubL-2.0 |
+| **[ParadeDB](https://github.com/paradedb/paradedb)** | [![Stars](https://img.shields.io/github/stars/paradedb/paradedb?style=social&color=white)](https://github.com/paradedb/paradedb/stargazers) | PostgreSQL Search & Analytics Engine | Modern elastic search and columnar analytical engine built natively on PostgreSQL, replacing Elasticsearch for hybrid text, vector, and analytical workloads. | AGPL-3.0 |
+| **[Hydra Columnar](https://github.com/hydradatabase/columnar)** | [![Stars](https://img.shields.io/github/stars/hydradatabase/columnar?style=social&color=white)](https://github.com/hydradatabase/columnar/stargazers) | Open-Source Columnar Postgres Extension | Open-source columnar data store for PostgreSQL engineered to aggregate massive operational datasets and run operational analytics directly within Postgres. | Apache-2.0 |
+| **[MatrixOne](https://github.com/matrixorigin/matrixone)** | [![Stars](https://img.shields.io/github/stars/matrixorigin/matrixone?style=social&color=white)](https://github.com/matrixorigin/matrixone/stargazers) | Hyper-Converged Cloud-Native Database | Hyper-converged cloud-native database that consolidates OLTP, OLAP, and streaming into a unified engine with decoupled storage and compute. | Apache-2.0 |
+
+---
+
+## Architectural Comparison: True HTAP vs. MPP OLAP
+
+When evaluating systems in this ecosystem, database architects distinguish between three primary design paradigms:
+
+1. **Native Dual-Engine HTAP (e.g., TiDB, Snowflake Unistore)**:
+   - Stores transactions in a row format (e.g., RocksDB-backed TiKV) for low-latency atomic writes.
+   - Automatically replicates modifications via Raft/WAL to a synchronized columnar format (e.g., TiFlash) for vector scans without lock contention or query degradation.
+
+2. **Converged Universal Storage (e.g., SingleStore, OceanBase, MatrixOne)**:
+   - Uses unified hybrid data blocks containing column segment files with in-memory row write buffers to serve concurrent mixed workloads directly from a single storage layer.
+
+3. **High-Speed MPP Real-Time OLAP (e.g., Apache Doris, StarRocks, ClickHouse)**:
+   - Highly optimized for sub-second analytical aggregations and streaming batch ingest, but typically does not support multi-row interactive ACID transactions.
+
+---
+
+## How to Contribute
+
+We welcome community contributions! To add a new platform, database engine, or correct data:
+
+1. **Fork** the repository on GitHub.
+2. Create a new branch: `git checkout -b feature/add-new-htap-system`.
+3. Update `README.md` keeping tabular formatting, specific pricing/free tier data, star badges, and proper categorization.
+4. Submit a well-described **Pull Request**.
+
+---
+
+## Disclaimer & License
+
+- This list is curated for educational and architectural evaluation purposes. Product names and trademarks belong to their respective owners.
+- Pricing, free tiers, and feature capabilities change over time; please verify with each vendor's official documentation before making procurement decisions.
+- Distributed under the [MIT License](LICENSE).
