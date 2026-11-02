@@ -57,9 +57,9 @@ The table below lists the leading commercial and fully managed SaaS/PaaS platfor
 
 ## 💻 Open-Source GitHub Projects
 
-The following open-source projects provide native HTAP architectures, distributed SQL engines, or analytical databases capable of operational analytics. Repositories are sorted in descending order by **GitHub Star Count**. Click on any star badge to navigate to the project's stargazers page.
+The following open-source projects provide native HTAP architectures, distributed SQL engines, or analytical databases capable of operational analytics. Repositories are sorted in descending order by **GitHub Stars_Count**. Click on any Stars_Badge to navigate to the project's stargazers page.
 
-| 📦 Repository | ⭐ Stars | 🏛️ Primary Architecture | 📝 Description | 📜 License |
+| 📦 Repository | ⭐ GitHub_Stars | 🏛️ Primary Architecture | 📝 Description | 📜 License |
 | :--- | :---: | :--- | :--- | :--- |
 | **[ClickHouse](https://github.com/ClickHouse/ClickHouse)** | [![Stars](https://img.shields.io/github/stars/ClickHouse/ClickHouse?style=social&color=white)](https://github.com/ClickHouse/ClickHouse/stargazers) | Column-Oriented DBMS / Real-Time OLAP | Ultra-fast column-oriented database management system for real-time analytical reporting and operational metric streaming using SQL. | Apache-2.0 |
 | **[DuckDB](https://github.com/duckdb/duckdb)** | [![Stars](https://img.shields.io/github/stars/duckdb/duckdb?style=social&color=white)](https://github.com/duckdb/duckdb/stargazers) | In-Process Columnar OLAP Engine | Embeddable analytical SQL database engine ("SQLite for Analytics") designed for high-performance operational vector and column analytics. | MIT |
@@ -118,7 +118,7 @@ We welcome community contributions! To add a new platform, database engine, or c
 
 1. **Fork** the repository on GitHub.
 2. Create a new branch: `git checkout -b feature/add-new-htap-system`.
-3. Update `README.md` keeping tabular formatting, specific pricing/free tier data, star badges, and proper categorization.
+3. Update `README.md` keeping tabular formatting, specific pricing/free tier data, Stars_Badges, and proper categorization.
 4. Submit a well-described **Pull Request**.
 
 ---
