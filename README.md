@@ -57,7 +57,7 @@ The table below lists the leading commercial and fully managed SaaS/PaaS platfor
 
 ## 💻 Open-Source GitHub Projects
 
-The following open-source projects provide native HTAP architectures, distributed SQL engines, or analytical databases capable of operational analytics. Repositories are sorted in descending order by **GitHub Stars_Count**. Click on any Stars_Badge to navigate to the project's stargazers page.
+The following open-source projects provide native HTAP architectures, distributed SQL engines, or analytical databases capable of operational analytics. Repositories are sorted in descending order by **GitHub_Stars_Count**. Click on any Stars_Badge to navigate to the project's stargazers page.
 
 | 📦 Repository | ⭐ GitHub_Stars | 🏛️ Primary Architecture | 📝 Description | 📜 License |
 | :--- | :---: | :--- | :--- | :--- |
