@@ -1,31 +1,46 @@
-# Awesome Hybrid Transactional/Analytical Processing (HTAP) [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+<p align="center">
+  <img src="assets/banner.svg" alt="Awesome Hybrid Transactional/Analytical Processing (HTAP) Banner" width="100%" />
+</p>
 
-> A curated list of leading SaaS cloud platforms, distributed SQL databases, and open-source engines for **Hybrid Transactional/Analytical Processing (HTAP)** and real-time operational analytics.
+# 🚀 Awesome Hybrid Transactional/Analytical Processing (HTAP)
+
+<p align="center">
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a>
+  <a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://awesome.re/badge.svg" alt="Awesome List" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Hybrid-Transactional-Analytical-Processing-HTAP"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg" alt="PRs Welcome" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Hybrid-Transactional-Analytical-Processing-HTAP/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
+  <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
+</p>
+
+> ⚡ A curated collection of leading SaaS cloud platforms, distributed SQL databases, and open-source engines for **Hybrid Transactional/Analytical Processing (HTAP)** and real-time operational analytics without legacy ETL pipelines.
 
 ---
 
-## Sector Overview & Market Dynamics
+## 📑 Table of Contents
+
+- [🌐 Sector Overview & Market Dynamics](#-sector-overview--market-dynamics)
+- [☁️ SaaS & Managed Cloud Platforms](#️-saas--managed-cloud-platforms)
+- [💻 Open-Source GitHub Projects](#-open-source-github-projects)
+- [🏗️ Architectural Comparison: True HTAP vs. MPP OLAP](#️-architectural-comparison-true-htap-vs-mpp-olap)
+- [📈 Star History](#-star-history)
+- [🤝 Support & Sponsorship](#-support--sponsorship)
+- [🤝 How to Contribute](#-how-to-contribute)
+- [⚖️ Disclaimer & License](#️-disclaimer--license)
+
+---
+
+## 🌐 Sector Overview & Market Dynamics
 
 The global Hybrid Transactional/Analytical Processing (HTAP) market is estimated at approximately **$8.2 billion in 2026** and projected to surpass **$30 billion by the early 2030s**, compounding at a CAGR of ~24%. The sector exhibits a **moderately fragmented architecture with dual-layer consolidation**: hyperscale cloud providers (Microsoft Azure, AWS, Google Cloud, Oracle) capture dominant operational workloads through serverless HTAP integrations (e.g., Azure Synapse Link, Aurora Limitless, AlloyDB, Spanner TrueTime), while specialized distributed SQL and real-time columnar engines (TiDB, SingleStore, CockroachDB, Snowflake Unistore) retain strong, defensible developer niches through sub-second analytical concurrency, decoupled compute-storage scaling, and native zero-ETL primitives.
 
 ---
 
-## Table of Contents
-
-- [Sector Overview & Market Dynamics](#sector-overview--market-dynamics)
-- [SaaS & Managed Cloud Platforms](#saas--managed-cloud-platforms)
-- [Open-Source GitHub Projects](#open-source-github-projects)
-- [Architectural Comparison: True HTAP vs. MPP OLAP](#architectural-comparison-true-htap-vs-mpp-olap)
-- [How to Contribute](#how-to-contribute)
-- [Disclaimer & License](#disclaimer--license)
-
----
-
-## SaaS & Managed Cloud Platforms
+## ☁️ SaaS & Managed Cloud Platforms
 
 The table below lists the leading commercial and fully managed SaaS/PaaS platforms offering HTAP, distributed SQL, or converged operational-analytical query capabilities. Entries are sorted in descending order by **parent company size** (market capitalization / valuation / annual revenue).
 
-| Platform | Provider / Company | Company Size (Valuation / Market Cap / Rev) | Starting Tier Pricing | Free Tier / Trial Limit | Key HTAP Capabilities |
+| 🏢 Platform | 🏷️ Provider / Company | 💰 Company Size (Valuation / Market Cap / Rev) | 💳 Starting Tier Pricing | 🎁 Free Tier / Trial Limit | ⚡ Key HTAP Capabilities |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **[Azure Cosmos DB](https://azure.microsoft.com/en-us/products/cosmos-db)** | Microsoft | ~$3.1T Market Cap | Serverless: $0.25 per 1M RU/s + $0.25/GB storage; Provisioned: ~$0.008/hour per 100 RU/s | **Free Forever**: 1,000 RU/s throughput + 25 GB storage per month free indefinitely across all APIs | Multi-model distributed NoSQL/relational database with **Azure Synapse Link**, providing zero-ETL, near-real-time analytical execution over operational stores. |
 | **[AWS Aurora Limitless Database](https://aws.amazon.com/rds/aurora/)** | Amazon Web Services (AWS) | ~$1.9T Market Cap (Amazon) | $0.12 per Aurora Capacity Unit (ACU-Hour) + $0.10/GB-month storage | **Free Trial**: AWS Free Tier offers 750 hours/month of db.t3.micro or db.t4g.micro single-AZ instances for 12 months (standard Aurora) | Distributed PostgreSQL-compatible engine featuring horizontally scaled multi-sharding, high-throughput OLTP writes, and distributed transactional read-analytics without cross-region ETL. |
@@ -40,11 +55,11 @@ The table below lists the leading commercial and fully managed SaaS/PaaS platfor
 
 ---
 
-## Open-Source GitHub Projects
+## 💻 Open-Source GitHub Projects
 
 The following open-source projects provide native HTAP architectures, distributed SQL engines, or analytical databases capable of operational analytics. Repositories are sorted in descending order by **GitHub Star Count**. Click on any star badge to navigate to the project's stargazers page.
 
-| Repository | Stars | Primary Architecture | Description | License |
+| 📦 Repository | ⭐ Stars | 🏛️ Primary Architecture | 📝 Description | 📜 License |
 | :--- | :---: | :--- | :--- | :--- |
 | **[ClickHouse](https://github.com/ClickHouse/ClickHouse)** | [![Stars](https://img.shields.io/github/stars/ClickHouse/ClickHouse?style=social&color=white)](https://github.com/ClickHouse/ClickHouse/stargazers) | Column-Oriented DBMS / Real-Time OLAP | Ultra-fast column-oriented database management system for real-time analytical reporting and operational metric streaming using SQL. | Apache-2.0 |
 | **[DuckDB](https://github.com/duckdb/duckdb)** | [![Stars](https://img.shields.io/github/stars/duckdb/duckdb?style=social&color=white)](https://github.com/duckdb/duckdb/stargazers) | In-Process Columnar OLAP Engine | Embeddable analytical SQL database engine ("SQLite for Analytics") designed for high-performance operational vector and column analytics. | MIT |
@@ -62,7 +77,7 @@ The following open-source projects provide native HTAP architectures, distribute
 
 ---
 
-## Architectural Comparison: True HTAP vs. MPP OLAP
+## 🏗️ Architectural Comparison: True HTAP vs. MPP OLAP
 
 When evaluating systems in this ecosystem, database architects distinguish between three primary design paradigms:
 
@@ -78,7 +93,26 @@ When evaluating systems in this ecosystem, database architects distinguish betwe
 
 ---
 
-## How to Contribute
+##  Star History
+[![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/Awesome-Hybrid-Transactional-Analytical-Processing-HTAP&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Awesome-Hybrid-Transactional-Analytical-Processing-HTAP&type=date&legend=top-left)
+
+---
+
+## 💖 Support & Sponsorship
+
+Thank you for visiting and supporting **Awesome Hybrid Transactional/Analytical Processing (HTAP)**! 🙌
+
+If you found this resource helpful, please consider:
+- ⭐ **Starring** the repository on GitHub
+- 🍴 **Forking** it to keep a personal copy or contribute improvements
+- 📢 **Sharing** with your network, team, or developer community
+- ☕ Buying me a coffee by sponsoring on the [GitHub Sponsor Dashboard](https://github.com/sponsors/ishandutta2007)
+
+Your support motivates continuous curation and maintenance of this list!
+
+---
+
+## 🤝 How to Contribute
 
 We welcome community contributions! To add a new platform, database engine, or correct data:
 
@@ -89,7 +123,7 @@ We welcome community contributions! To add a new platform, database engine, or c
 
 ---
 
-## Disclaimer & License
+## ⚖️ Disclaimer & License
 
 - This list is curated for educational and architectural evaluation purposes. Product names and trademarks belong to their respective owners.
 - Pricing, free tiers, and feature capabilities change over time; please verify with each vendor's official documentation before making procurement decisions.

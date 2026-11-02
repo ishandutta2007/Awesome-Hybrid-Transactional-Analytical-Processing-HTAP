@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360" style="background:#0b0f19;border-radius:12px;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070a13" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+
+    <!-- Accent Gradients -->
+    <linearGradient id="oltpGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="olapGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+    <linearGradient id="htapGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#f43f5e" />
+    </linearGradient>
+
+    <linearGradient id="gridGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.02" />
+    </linearGradient>
+
+    <radialGradient id="centerOrb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="cyanOrb" cx="15%" cy="20%" r="40%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="pinkOrb" cx="85%" cy="80%" r="40%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <style>
+    /* CSS Keyframe Animations */
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.35; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(1.08); }
+    }
+    @keyframes floatParticle {
+      0% { transform: translateY(0px) translateX(0px); opacity: 0.2; }
+      50% { transform: translateY(-16px) translateX(12px); opacity: 0.8; }
+      100% { transform: translateY(0px) translateX(0px); opacity: 0.2; }
+    }
+    @keyframes streamDataLeft {
+      0% { stroke-dashoffset: 240; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes streamDataRight {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: 240; }
+    }
+    @keyframes waveFlow {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .pulse-glow {
+      transform-origin: center;
+      animation: pulseGlow 6s ease-in-out infinite;
+    }
+    .particle-1 { animation: floatParticle 5s ease-in-out infinite; }
+    .particle-2 { animation: floatParticle 7s ease-in-out infinite 1.5s; }
+    .particle-3 { animation: floatParticle 6s ease-in-out infinite 3s; }
+    .stream-line-1 {
+      stroke-dasharray: 10 15;
+      animation: streamDataLeft 7s linear infinite;
+    }
+    .stream-line-2 {
+      stroke-dasharray: 12 18;
+      animation: streamDataRight 8s linear infinite;
+    }
+  </style>
+
+  <!-- Deep Background Layer -->
+  <rect width="1200" height="360" fill="url(#bgGrad)" />
+
+  <!-- Ambient Glowing Orbs (Dynamic Pulse in background) -->
+  <circle cx="600" cy="180" r="300" fill="url(#centerOrb)" class="pulse-glow" />
+  <circle cx="180" cy="90" r="220" fill="url(#cyanOrb)" class="pulse-glow" style="animation-delay: -2s;" />
+  <circle cx="1020" cy="270" r="240" fill="url(#pinkOrb)" class="pulse-glow" style="animation-delay: -4s;" />
+
+  <!-- Decorative Tech Grid (Background) -->
+  <g stroke="#334155" stroke-opacity="0.18" stroke-width="1">
+    <line x1="100" y1="0" x2="100" y2="360" />
+    <line x1="250" y1="0" x2="250" y2="360" />
+    <line x1="400" y1="0" x2="400" y2="360" />
+    <line x1="800" y1="0" x2="800" y2="360" />
+    <line x1="950" y1="0" x2="950" y2="360" />
+    <line x1="1100" y1="0" x2="1100" y2="360" />
+    <line x1="0" y1="60" x2="1200" y2="60" />
+    <line x1="0" y1="180" x2="1200" y2="180" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+  </g>
+
+  <!-- Dynamic Flowing Data Streams (Behind Foreground Text) -->
+  <g fill="none" opacity="0.45">
+    <path d="M-50,80 C 250,160 350,20 600,80 C 850,140 950,40 1250,90" stroke="url(#oltpGrad)" stroke-width="2" class="stream-line-1" />
+    <path d="M-50,290 C 200,220 400,320 600,270 C 800,220 1000,310 1250,260" stroke="url(#olapGrad)" stroke-width="2" class="stream-line-2" />
+    <path d="M-50,180 C 300,230 450,130 600,180 C 750,230 900,130 1250,180" stroke="url(#htapGrad)" stroke-width="1.5" stroke-opacity="0.3" />
+  </g>
+
+  <!-- Ambient Particles -->
+  <g fill="#38bdf8" opacity="0.5">
+    <circle cx="280" cy="70" r="2.5" class="particle-1" />
+    <circle cx="880" cy="95" r="2" class="particle-2" />
+    <circle cx="150" cy="270" r="3" class="particle-3" />
+    <circle cx="1060" cy="140" r="2.5" class="particle-1" />
+  </g>
+  <g fill="#ec4899" opacity="0.5">
+    <circle cx="920" cy="260" r="3" class="particle-2" />
+    <circle cx="380" cy="300" r="2" class="particle-3" />
+    <circle cx="720" cy="50" r="2.5" class="particle-1" />
+  </g>
+
+  <!-- Foreground Pill Tags -->
+  <g transform="translate(600, 52)">
+    <!-- Centered OLTP Pill -->
+    <g transform="translate(-190, 0)">
+      <rect x="-65" y="-14" width="130" height="28" rx="14" fill="#0369a1" fill-opacity="0.35" stroke="#38bdf8" stroke-width="1.2" />
+      <text text-anchor="middle" y="4" font-size="11" font-weight="700" fill="#7dd3fc" letter-spacing="1">⚡ ROW OLTP</text>
+    </g>
+    <!-- Centered HTAP Pill -->
+    <g transform="translate(0, 0)">
+      <rect x="-75" y="-14" width="150" height="28" rx="14" fill="#4338ca" fill-opacity="0.45" stroke="#818cf8" stroke-width="1.2" />
+      <text text-anchor="middle" y="4" font-size="11" font-weight="800" fill="#c7d2fe" letter-spacing="1">🔄 ZERO-ETL HTAP</text>
+    </g>
+    <!-- Centered OLAP Pill -->
+    <g transform="translate(190, 0)">
+      <rect x="-70" y="-14" width="140" height="28" rx="14" fill="#831843" fill-opacity="0.35" stroke="#f472b6" stroke-width="1.2" />
+      <text text-anchor="middle" y="4" font-size="11" font-weight="700" fill="#fbcfe8" letter-spacing="1">📊 COLUMN OLAP</text>
+    </g>
+  </g>
+
+  <!-- FOREGROUND BRAND TITLE & HEADLINE -->
+  <!-- Crisp glow backdrop for guaranteed high contrast -->
+  <text x="600" y="145" text-anchor="middle" font-size="44" font-weight="900" fill="#0f172a" stroke="#0f172a" stroke-width="8" stroke-linejoin="round" letter-spacing="-0.5">
+    AWESOME HTAP ECOSYSTEM
+  </text>
+  <text x="600" y="145" text-anchor="middle" font-size="44" font-weight="900" fill="url(#htapGrad)" letter-spacing="-0.5">
+    AWESOME HTAP ECOSYSTEM
+  </text>
+
+  <!-- Subtitle Line 1 -->
+  <text x="600" y="195" text-anchor="middle" font-size="19" font-weight="600" fill="#f1f5f9" letter-spacing="0.2">
+    Hybrid Transactional / Analytical Processing &amp; Real-Time Analytics
+  </text>
+
+  <!-- Subtitle Line 2 -->
+  <text x="600" y="228" text-anchor="middle" font-size="14" font-weight="400" fill="#94a3b8" letter-spacing="0.4">
+    Distributed SQL Databases • Real-Time Columnar Engines • Converged Cloud SaaS
+  </text>
+
+  <!-- Lower Architecture Indicator Badges -->
+  <g transform="translate(600, 290)">
+    <rect x="-420" y="-22" width="840" height="44" rx="10" fill="#1e293b" fill-opacity="0.75" stroke="#334155" stroke-width="1" />
+    
+    <text x="-310" y="5" text-anchor="middle" font-size="12" font-weight="600" fill="#38bdf8">🚀 ACID Transactions</text>
+    <circle cx="-195" cy="1" r="2.5" fill="#475569" />
+    <text x="-105" y="5" text-anchor="middle" font-size="12" font-weight="600" fill="#818cf8">⚡ Sub-Second Analytics</text>
+    <circle cx="10" cy="1" r="2.5" fill="#475569" />
+    <text x="115" y="5" text-anchor="middle" font-size="12" font-weight="600" fill="#c084fc">🌐 Distributed Scale-Out</text>
+    <circle cx="230" cy="1" r="2.5" fill="#475569" />
+    <text x="325" y="5" text-anchor="middle" font-size="12" font-weight="600" fill="#f43f5e">🛡️ Zero-ETL Sync</text>
+  </g>
+</svg>
